@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  JRMainViewController.h
 //  UITableView
 //
 //  Created by 王潇 on 16/11/2.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface JRMainViewController : UIViewController
 
 @end
-
