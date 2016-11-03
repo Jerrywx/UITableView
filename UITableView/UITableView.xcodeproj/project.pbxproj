@@ -11,7 +11,7 @@
 		C458F28B1DCA401A005CA37E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C458F28A1DCA401A005CA37E /* Assets.xcassets */; };
 		C458F28E1DCA401A005CA37E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C458F28C1DCA401A005CA37E /* LaunchScreen.storyboard */; };
 		C458F29B1DCA41B4005CA37E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = C458F29A1DCA41B4005CA37E /* AppDelegate.m */; };
-		C458F29E1DCA41CC005CA37E /* JRMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C458F29D1DCA41CC005CA37E /* JRMainViewController.m */; };
+		C458F2A71DCA4513005CA37E /* JRMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = C458F2A41DCA4513005CA37E /* JRMainViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,9 +22,9 @@
 		C458F28F1DCA401A005CA37E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C458F2991DCA41B4005CA37E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		C458F29A1DCA41B4005CA37E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		C458F29C1DCA41CC005CA37E /* JRMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRMainViewController.h; sourceTree = "<group>"; };
-		C458F29D1DCA41CC005CA37E /* JRMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRMainViewController.m; sourceTree = "<group>"; };
-		C458F29F1DCA429A005CA37E /* UItableView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UItableView.h; sourceTree = "<group>"; };
+		C458F2A01DCA4375005CA37E /* UITableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UITableView.h; sourceTree = "<group>"; };
+		C458F2A31DCA4513005CA37E /* JRMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JRMainViewController.h; sourceTree = "<group>"; };
+		C458F2A41DCA4513005CA37E /* JRMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JRMainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +60,7 @@
 				C458F2991DCA41B4005CA37E /* AppDelegate.h */,
 				C458F29A1DCA41B4005CA37E /* AppDelegate.m */,
 				C458F2951DCA4045005CA37E /* Controllers */,
+				C458F2A11DCA4513005CA37E /* AdvancedViewControllers */,
 				C458F27E1DCA401A005CA37E /* Supporting Files */,
 			);
 			path = UITableView;
@@ -68,7 +69,7 @@
 		C458F27E1DCA401A005CA37E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				C458F29F1DCA429A005CA37E /* UItableView.h */,
+				C458F2A01DCA4375005CA37E /* UITableView.h */,
 				C458F28A1DCA401A005CA37E /* Assets.xcassets */,
 				C458F28C1DCA401A005CA37E /* LaunchScreen.storyboard */,
 				C458F28F1DCA401A005CA37E /* Info.plist */,
@@ -80,10 +81,42 @@
 		C458F2951DCA4045005CA37E /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				C458F29C1DCA41CC005CA37E /* JRMainViewController.h */,
-				C458F29D1DCA41CC005CA37E /* JRMainViewController.m */,
+				C458F2A21DCA4513005CA37E /* MainViewControllers */,
+				C458F2A61DCA4513005CA37E /* PrimaryViewControllers */,
+				C458F2A51DCA4513005CA37E /* MediumViewControllers */,
 			);
 			path = Controllers;
+			sourceTree = "<group>";
+		};
+		C458F2A11DCA4513005CA37E /* AdvancedViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = AdvancedViewControllers;
+			path = Controllers/AdvancedViewControllers;
+			sourceTree = "<group>";
+		};
+		C458F2A21DCA4513005CA37E /* MainViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C458F2A31DCA4513005CA37E /* JRMainViewController.h */,
+				C458F2A41DCA4513005CA37E /* JRMainViewController.m */,
+			);
+			path = MainViewControllers;
+			sourceTree = "<group>";
+		};
+		C458F2A51DCA4513005CA37E /* MediumViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = MediumViewControllers;
+			sourceTree = "<group>";
+		};
+		C458F2A61DCA4513005CA37E /* PrimaryViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = PrimaryViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -158,7 +191,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C458F29B1DCA41B4005CA37E /* AppDelegate.m in Sources */,
-				C458F29E1DCA41CC005CA37E /* JRMainViewController.m in Sources */,
+				C458F2A71DCA4513005CA37E /* JRMainViewController.m in Sources */,
 				C458F2801DCA401A005CA37E /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

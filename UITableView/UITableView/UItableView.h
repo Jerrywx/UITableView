@@ -36,6 +36,10 @@ typedef NS_ENUM(NSInteger, UITableViewRowActionStyle) {
 	UITableViewRowActionStyleNormal
 };
 
+
+/* --------------------------------------------------------------------------- */
+/* UITableViewRowAction														   */
+/* --------------------------------------------------------------------------- */
 @interface UITableViewRowAction : NSObject <NSCopying>
 
 + (instancetype)rowActionWithStyle:(UITableViewRowActionStyle)style 
@@ -49,23 +53,26 @@ typedef NS_ENUM(NSInteger, UITableViewRowActionStyle) {
 
 @end
 
+/* --------------------------------------------------------------------------- */
+/* UITableViewFocusUpdateContext											   */
+/* --------------------------------------------------------------------------- */
 NS_CLASS_AVAILABLE_IOS(9_0) @interface UITableViewFocusUpdateContext : UIFocusUpdateContext
-
 @property (nonatomic, strong, readonly, nullable) NSIndexPath *previouslyFocusedIndexPath;
 @property (nonatomic, strong, readonly, nullable) NSIndexPath *nextFocusedIndexPath;
-
 @end
 
 /// 选中cell通知
 NSNotificationName const UITableViewSelectionDidChangeNotification;
 
 
-//_______________________________________________________________________________________________________________
-
+/* --------------------------------------------------------------------------- */
+/* UITableView																   */
+/* --------------------------------------------------------------------------- */
 @interface UITableView : UIScrollView <NSCoding>
+// must specify style at creation. -initWithFrame: calls this with UITableViewStylePlain
+- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style;
 
-- (instancetype)initWithFrame:(CGRect)frame style:(UITableViewStyle)style NS_DESIGNATED_INITIALIZER; // must specify style at creation. -initWithFrame: calls this with UITableViewStylePlain
-- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder NS_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder *)aDecoder;
 
 @property (nonatomic, readonly) UITableViewStyle					style;
 @property (nonatomic, weak, nullable) id <UITableViewDataSource>	dataSource;
@@ -101,10 +108,14 @@ NSNotificationName const UITableViewSelectionDidChangeNotification;
 
 - (nullable NSIndexPath *)indexPathForRowAtPoint:(CGPoint)point;                         // returns nil if point is outside of any row in the table
 - (nullable NSIndexPath *)indexPathForCell:(UITableViewCell *)cell;                      // returns nil if cell is not visible
-- (nullable NSArray<NSIndexPath *> *)indexPathsForRowsInRect:(CGRect)rect;                              // returns nil if rect not valid
+// returns nil if rect not valid
+- (nullable NSArray<NSIndexPath *> *)indexPathsForRowsInRect:(CGRect)rect;
 
-- (nullable __kindof UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath;   // returns nil if cell is not visible or index path is out of range
+// returns nil if cell is not visible or index path is out of range
+- (nullable __kindof UITableViewCell *)cellForRowAtIndexPath:(NSIndexPath *)indexPath;
+
 @property (nonatomic, readonly) NSArray<__kindof UITableViewCell *> *visibleCells;
+
 @property (nonatomic, readonly, nullable) NSArray<NSIndexPath *> *indexPathsForVisibleRows;
 
 - (nullable UITableViewHeaderFooterView *)headerViewForSection:(NSInteger)section;
@@ -135,9 +146,12 @@ NSNotificationName const UITableViewSelectionDidChangeNotification;
 - (void)setEditing:(BOOL)editing animated:(BOOL)animated;
 
 @property (nonatomic) BOOL allowsSelection NS_AVAILABLE_IOS(3_0);  // default is YES. Controls whether rows can be selected when not in editing mode
-@property (nonatomic) BOOL allowsSelectionDuringEditing;                                 // default is NO. Controls whether rows can be selected when in editing mode
-@property (nonatomic) BOOL allowsMultipleSelection NS_AVAILABLE_IOS(5_0);                // default is NO. Controls whether multiple rows can be selected simultaneously
-@property (nonatomic) BOOL allowsMultipleSelectionDuringEditing NS_AVAILABLE_IOS(5_0);   // default is NO. Controls whether multiple rows can be selected simultaneously in editing mode
+// default is NO. Controls whether rows can be selected when in editing mode
+@property (nonatomic) BOOL allowsSelectionDuringEditing;
+// default is NO. Controls whether multiple rows can be selected simultaneously
+@property (nonatomic) BOOL allowsMultipleSelection;
+// default is NO. Controls whether multiple rows can be selected simultaneously in editing mode
+@property (nonatomic) BOOL allowsMultipleSelectionDuringEditing;
 
 // Selection
 
